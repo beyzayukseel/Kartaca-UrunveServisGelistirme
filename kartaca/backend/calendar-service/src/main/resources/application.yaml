@@ -1,0 +1,35 @@
+server:
+  port: 8087
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/calendar
+    username: postgres
+    password: beyzanur
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show_sql: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        globally_quoted_identifiers: true
+  application:
+    name: calendar-service
+
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+
+eureka:
+  client:
+    register-with-eureka: 'true'
+    fetch-registry: 'true'
+    service-url:
+      defaultZone: http://localhost:8762/eureka/
+  instance:
+    hostname: localhost

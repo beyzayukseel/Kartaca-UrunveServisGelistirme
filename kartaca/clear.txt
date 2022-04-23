@@ -1,0 +1,40 @@
+tebrikler beyza nur yuksel , gorev icerigine ulastin ! 
+ 
+iste bekledigimiz gorevin gereksinimleri ; 
+ 
+tercih ettiginiz bir arka uc dili ( tercihen java / Go / php / python ) ve on yuz js catisi ile ( tercihen vue / react / angular ) 
+ 
+temel seviyede kullanici uyeligi yapilabilen , oturum acma ve kapatma ozelliklerine sahip bir web projesi gelistirmesi beklenmektedir . 
+ 
+oturum acan kullanicilar anasayfa uzerinde bir takvim gormelidir . oturum acmamis olanlar ise oturum acmaya yonlendirilmelidir . 
+takvimde kullanicinin kendi ekledigi etkinlikler gosterilmeli , takvime tiklayarak ekleme yapabilmeli veya etkinligi kaldirabilmelidir . 
+ 
+arka uc 3 micro service seklinde tasarlanmalidir . account service / calendar service / web api service . 
+ 
+oturum bilgileri icin redis kullanilmalidir . rdbms veya nosql tercihi istege gore yapilabilir . 
+ 
+tum on yuz istekleri web api service tarafindan karsilanmalidir ve servisler kendi aralarinda konusmalidir . 
+ 
+kod deposunu bize iletirken senden istedigimiz 
+sana ozel anahtar kodu : iCCCCCDkNbqK_qEVuxCI78vGegzPZu2tjug6N8kQhrWy6QjDll6MkpQ1o2wbYDpsE4DMbLBO7KjnJ0ZJOJTTGBj_LyTM76IlNQy72jhiV6oGXfdBWQdjpoi-cBjTH55BgpkBZoDU7lB2ONx2QvRVX6FX6pq6T5Gy7gTaUwwRJi4khMBA48gXIyrda1MtypNmlfmUxzOd96OnjkgTrwq4J96cdRSuYH1st8xyQ_3ZQqr_LtPmo0uUcsK= 
+ 
+notlar ; 
+ 
+* uygulamanin ve gerekiyorsa arayuzun docker ile nasil derlenip calisir hale getirilecegi readme olarak yazilmis olmalidir . 
+docker - compose uzerinden tek bir komut ile calisacak sekilde servis edilmelidir . 
+veritabani gibi bagimliliklar da icerisinde yer almalidir . 
+ 
+* readme icerisinde servis endpoint ' lerine nasil istek atilacagi , arayuz adresinin ne oldugu gibi projenin nasil calistirilacagina dair bilgiler yer almalidir . 
+ 
+* yukarida verilen sana ozel anahtar kodu da readme icerisine eklenmelidir . 
+ 
+* Gorev icerigine ulasmak icin kullanilan kod ve proje Github , Gitlab , bitbucket gibi erisime acik bir repo ' ya gonderilerek , 
+baglanti adresi insankaynaklari@kartaca.com'a iletilmelidir . 
+kod deposu uzerinden paylasim saglanamiyorsa , indirilebilir dosyalara ulasmamiz icin bir dosya / baglanti iletilmelidir . 
+ 
+ 
+Gorevlerdeki tum gereksinimleri yerine getiremediyseniz bile , moralinizi bozmayin ve tamamladiginiz kadarini bizimle mutlaka paylasin . 
+ 
+kolay gelsin ! 
+
+

@@ -1,0 +1,84 @@
+version: "3.1"
+
+services:
+  backend:
+    service-registry:
+      image: service-registry
+      ports:
+        - "8762:8762"
+      networks:
+        - backend-network
+
+
+    calendar-service:
+      image: calendar-service
+      ports:
+        - "8087:8087"
+      depends_on:
+        - service-registry
+        PostgreSQL:
+          condition: service_healthy
+      environment:
+        - SPRING_DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/calendar
+        - SPRING_DATASOURCE_USERNAME=postgres
+        - SPRING_DATASOURCE_PASSWORD=password
+        - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      networks:
+        - backend-network
+
+
+    account-service:
+      image: account-service
+      ports:
+        - "8086:8086"
+      depends_on:
+        PostgreSQL:
+          condition: service_healthy
+
+      environment:
+        - SPRING_DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/userdb
+        - SPRING_DATASOURCE_USERNAME=postgres
+        - SPRING_DATASOURCE_PASSWORD=password
+        - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+        Redis:
+          condition: service_started
+
+      networks:
+        - backend-network
+
+    api-gateway:
+      image: api-gateway
+      ports:
+        - "9191:9191"
+      depends_on:
+        - service-registry
+        - calendar-service
+        - account-service
+      networks:
+        - backend-network
+
+
+
+    PostgreSQL:
+      image: postgres
+      ports:
+        - "5432:5432"
+      environment:
+        - POSTGRES_PASSWORD=password
+        - POSTGRES_USER=postgres
+        - POSTGRES_DB=postgres
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 20s
+      timeout: 20s
+      retries: 5
+
+  Redis:
+    image: redis
+    container_name: my-redis
+
+
+networks:
+  backend-network:
+

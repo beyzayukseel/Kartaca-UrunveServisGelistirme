@@ -1,0 +1,39 @@
+server:
+  port: 9191
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      globalcors:
+            corsConfigurations:
+              '[/**]':
+                allowedOrigins: "*"
+                allowedMethods: "*"
+                allowedHeaders: "*"
+      routes:
+        - id: account-service
+          uri: lb://account-service
+          predicates:
+            - Path=/api/**
+        - id: calendar-service
+          uri: lb://calendar-service
+          predicates:
+            - Path=/calendars/**
+
+
+eureka:
+  client:
+    register-with-eureka: 'true'
+    fetch-registry: 'true'
+    service-url:
+      defaultZone: http://localhost:8762/eureka/
+  instance:
+    hostname: localhost
+
+
+
+
+

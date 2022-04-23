@@ -1,0 +1,44 @@
+server:
+  port: 8086
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/userdb
+    username: postgres
+    password: beyzanur
+
+  session:
+    store-type: redis
+    timeout: 1000
+
+  redis:
+    host: localhost
+    port: 6379
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show_sql: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        globally_quoted_identifiers: true
+  application:
+    name: account-service
+
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+
+eureka:
+  client:
+    register-with-eureka: 'true'
+    fetch-registry: 'true'
+    service-url:
+      defaultZone: http://localhost:8762/eureka/
+  instance:
+    hostname: localhost
+
+
+
