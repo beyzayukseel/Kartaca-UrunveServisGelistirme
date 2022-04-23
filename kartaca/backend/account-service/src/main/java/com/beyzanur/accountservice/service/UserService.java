@@ -62,7 +62,7 @@ public class UserService implements UserDetailsService {
         Optional<User> user = userRepository.findById(userId);
 
         Calendar calendar =
-                restTemplate.getForObject("http://calendar-service/api/calendar/" + user.get().getId()
+                restTemplate.getForObject("http://calendar-service/calendars/" + user.get().getId()
                         ,Calendar.class);
 
         vo.setUser(user);
